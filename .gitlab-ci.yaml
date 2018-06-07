@@ -1,0 +1,42 @@
+variables:
+  - YOUR_CUSTOM_KONG_IMAGE_NAME: "kong"
+  - DOCKER_ID_USER: "your_login"
+  - DOCKER_URL_REGISTER: "registry.example.com"
+  - USERNAME: "my_name"
+  - ACCESS_TOKEN: "my_token"
+  - TSURU_TARGET: "tsuru.example.com"
+  - TSURU_TOKEN: "my_tsuru_hash"
+  - APP_NAME: "kong"
+
+stages:
+  - build_push
+  - deploy
+  - register_admin
+  
+docker_build_push:
+  image: docker
+  stage: build_push
+  script:
+    - chmod +x docker-entrypoint.sh
+    - docker build -t $DOCKER_URL_REGISTER/$YOUR_CUSTOM_KONG_IMAGE_NAME .
+    - docker login $DOCKER_URL_REGISTER -u $USERNAME -p $ACCESS_TOKEN
+    - docker push $DOCKER_URL_REGISTER/$YOUR_CUSTOM_KONG_IMAGE_NAME
+
+deploy_tsuru:
+  image: tsuru/client:latest
+  stage: deploy
+  dependencies:
+    - build_push
+  script:
+    - tsuru app-create $YOUR_CUSTOM_KONG_IMAGE_NAME static
+    - tsuru app-deploy -a $APP_NAME -i $DOCKER_URL_REGISTER/$YOUR_CUSTOM_KONG_IMAGE_NAME
+
+register_admin_api_kong:
+  image: tsuru/client:latest
+  stage: register_admin
+  when: manul
+  dependencies:
+    - deploy
+  script:
+    - tsuru app-run -a $APP_NAME -- curl -X POST http://localhost:8001 data name=admin-api --data host=localhost --data port=8001
+    - tsuru app-run -a $APP_NAME -- curl -X POST http://localhost:8001/services/admin-api/routes --data paths[]=/admin-api
