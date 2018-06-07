@@ -75,6 +75,10 @@ curl -X POST http://localhost:8001/services/admin-api/routes \
 > Note:
 > * For further information about registering APIs take a look [here](https://getkong.org/docs/0.13.x/secure-admin-api/#kong-api-loopback) and [here](https://getkong.org/about/faq/#kong-server).
 
+## 4. Automatization
+
+To see the deploy automated take a look at the gitlab-ci.yaml in this project.
+
 ## Oh, Thanks!
 
 By the way... thanks to [@jhonyscamacho](https://github.com/orgs/CIDAC/people/jhonyscamacho), [@matheuscruzsouza](https://github.com/orgs/CIDAC/people/matheuscruzsouza), [@wallacegsouza](https://github.com/orgs/CIDAC/people/wallacegsouza), [@ronanrf](https://github.com/orgs/CIDAC/people/ronanrf) and [@patrezze](https://github.com/patrezze).
