@@ -77,4 +77,4 @@ curl -X POST http://localhost:8001/services/admin-api/routes \
 
 ## Oh, Thanks!
 
-By the way... thanks to [@jhonyscamacho](https://github.com/orgs/CIDAC/people/jhonyscamacho), [@matheuscruzsouza](https://github.com/orgs/CIDAC/people/matheuscruzsouza), [@wallacegsouza](), [@ronanrf](https://github.com/orgs/CIDAC/people/ronanrf) and [@patrezze](https://github.com/patrezze).
+By the way... thanks to [@jhonyscamacho](https://github.com/orgs/CIDAC/people/jhonyscamacho), [@matheuscruzsouza](https://github.com/orgs/CIDAC/people/matheuscruzsouza), [@wallacegsouza](https://github.com/orgs/CIDAC/people/wallacegsouza), [@ronanrf](https://github.com/orgs/CIDAC/people/ronanrf) and [@patrezze](https://github.com/patrezze).
