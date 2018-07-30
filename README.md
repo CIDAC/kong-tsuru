@@ -56,10 +56,16 @@ tsuru app-deploy -i YOUR_CUSTOM_KONG_IMAGE_NAME -a kong-helloworld
 
 Last but not least, you can register and create a route to Kong admin API in Tsuru, running these commands:
 
+* Access the kong's shell.
+
+```bash
+tsuru app-shell -a kong-helloworld
+```
+
 * Registry Kong admin API
 
 ```bash
-tsuru app-shell curl -X POST http://localhost:8001/services \
+curl -X POST http://localhost:8001/services \
   --data name=admin-api \
   --data host=localhost \
   --data port=8001
@@ -73,7 +79,7 @@ curl -X POST http://localhost:8001/services/admin-api/routes \
 ```
 
 > Note:
-> * For further information about registering APIs take a look [here](https://getkong.org/docs/0.13.x/secure-admin-api/#kong-api-loopback) and [here](https://getkong.org/about/faq/#kong-server).
+> * For further information about registering APIs take a look [here](https://getkong.org/docs/0.14.x/secure-admin-api/#kong-api-loopback) and [here](https://getkong.org/about/faq/#kong-server).
 
 ## 4. Automatization
 
