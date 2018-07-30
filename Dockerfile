@@ -1,10 +1,10 @@
 FROM alpine:3.6
 
-ENV KONG_VERSION 0.13.1
-ENV KONG_SHA256 caf119ce7a367b9d9cd1ace55c4b6a499ff3c4693f80ea25129ebf2da0373fcc
+ENV KONG_VERSION 0.14.0
+ENV KONG_SHA256 968b355f6e46218dee31497f65fd708cf219b096c1c54bff7da00efb0c2db520
 
 RUN apk add --no-cache --virtual .build-deps wget tar ca-certificates \
-	&& apk add --no-cache libgcc openssl pcre perl tzdata curl bash \
+	&& apk add --no-cache libgcc openssl pcre perl tzdata curl \
 	&& wget -O kong.tar.gz "https://bintray.com/kong/kong-community-edition-alpine-tar/download_file?file_path=kong-community-edition-$KONG_VERSION.apk.tar.gz" \
 	&& echo "$KONG_SHA256 *kong.tar.gz" | sha256sum -c - \
 	&& tar -xzf kong.tar.gz -C /tmp \

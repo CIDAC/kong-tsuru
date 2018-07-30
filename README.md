@@ -6,7 +6,7 @@ This project assemble instructions to deploy Kong gateway in Tsuru Paas
 We are using [Tsuru](https://tsuru.io/) as our Platform as a Service software (Paas), and we decided to deploy [Kong](https://getkong.org/) in Tsuru in order to manage APIs and Microservices.
 
 > Notes:
-> * We are using **Tsuru 1.5.1** and **Kong 0.13.1**
+> * We are using **Tsuru 1.5.1** and **Kong 0.14.0**
 
 ## 2. Problem
 
